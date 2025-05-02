@@ -1,0 +1,218 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+* {
+    font-family: 'DynaPuff', cursive;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps video behind the content */
+    object-fit: cover; /* Ensures video covers the screen */
+}
+
+/* Scoreboard */
+.scoreBoard {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(15, 15, 30, 0.8);
+    border: 2px solid #0ff;
+    border-radius: 15px;
+    padding: 15px 25px;
+    font-family: 'Orbitron', sans-serif;
+    color: #0ff;
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px #0ff;
+    z-index: 100;
+    animation: pulse 2s infinite;
+}
+
+.scoreItem {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#lives {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+/* Heart animation when heart disappears */
+@keyframes heart-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#lives span {
+    display: inline-block;
+    animation: heart-pulse 1s ease-in-out infinite;
+}
+
+/* Holes and Moles */
+.hole {
+    height: 4vw;
+    width: 10vw;
+   
+    border-radius: 50%;
+    border: 10px solid rgb(222, 109, 109);
+}
+
+.mole {
+    position: relative;
+    top: -5vw;
+    height: 10vw;
+    width: 10vw;
+    display: none;
+    user-select: none;
+}
+
+/* Ground and App Layout */
+.ground {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 180px; /* Space below the title */
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1; /* Ensures content is above the video */
+}
+
+/* Title Styling */
+.head {
+    font-size: 6vw;
+    color: rgb(98, 213, 239);
+    font-family: fantasy;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    opacity: 0; /* This will hide the title without affecting layout */
+}
+
+/* Responsive */
+@media (max-width: 810px) {
+    .hole {
+        height: 10vw;
+        width: 25vw;
+    }
+    .mole {
+        height: 25vw;
+        width: 25vw;
+        top: -13vw;
+    }
+}
+
+/* 🎮 Futuristic Buttons Styling */
+.buttonPanel {
+    position: fixed;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    z-index: 100;
+}
+
+#play-btn,
+#pause-btn,
+#play-again-btn {
+    font-family: 'DynaPuff', cursive;
+    font-size: clamp(14px, 1.5vw, 22px);
+    padding: 1vw 2.5vw;
+    background: linear-gradient(145deg, #42e9f5, #1c91ff);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+#play-btn:hover,
+#pause-btn:hover,
+#play-again-btn:hover {
+    background: linear-gradient(145deg, #ff2fe7, #9000ff);
+    box-shadow: 0 0 25px #ff00ff;
+    transform: scale(1.1);
+}
+
+#play-btn:active,
+#pause-btn:active,
+#play-again-btn:active {
+    transform: scale(0.95);
+}
+
+/* 🔁 Utility: Hide elements */
+.hidden {
+    display: none !important;
+}
+
+/* 🎇 Animation: Fade in the game title */
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#game-title {
+    animation: fadeInTitle 0.6s ease-in-out;
+}
+.credit {
+    position: fixed;
+    bottom: 5px;
+    left: 10px;
+    font-size: 12px;
+    color: white;
+    opacity: 0.6;
+    font-family: Arial, sans-serif;
+    z-index: 10;
+}

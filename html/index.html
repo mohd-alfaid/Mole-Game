@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whack A Mole</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="bgvd.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Game Content -->
+    <div class="app">
+        <!-- Title with ID for JS access -->
+        <div class="head" id="game-title">Whack A Mole</div>
+
+        <!-- Mole Playground -->
+        <div class="ground">
+            <!-- Single hole (others will be cloned by JavaScript) -->
+            <div class="hole">
+                <img src="images/diglet.png" alt="diglet" class="mole" />
+            </div>
+        </div>
+
+        <!-- Scoreboard -->
+        <div class="scoreBoard">
+            <div class="scoreItem">
+                <span class="label">Score</span>
+                <span id="score">0</span>
+            </div>
+            <div class="scoreItem">
+                <span class="label">High Score</span>
+                <span id="high-score">0</span>
+            </div>
+            <div class="scoreItem">
+                <span class="label">Lives</span>
+                <span id="lives">❤️ ❤️ ❤️</span>
+            </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="buttonPanel">
+            <button id="play-btn">Play</button>
+            <button id="pause-btn" style="display: none;">Pause</button>
+            <button id="play-again-btn" style="display: none;">Play Again</button>
+        </div>
+    </div>
+
+    <!-- JS Script -->
+    <script src="script.js"></script>
+    <div class="credit">© MOHD ALFAID</div>
+
+</body>
+</html>
