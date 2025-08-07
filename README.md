@@ -58,7 +58,11 @@ You can add a screenshot like this (upload screenshot.png to your repo):
 
 md
  
-![Gameplay Screenshot](https://raw.githubusercontent.com/your-username/alien-whack-game/main/screenshot.png)
+Game UI
+
+<img width="1470" height="798" alt="mole ss" src="https://github.com/user-attachments/assets/65431c60-ebc0-4805-b92f-873699d43767" />
+
+
 💡 Future Ideas
 Add sound effects on hit/miss
 
